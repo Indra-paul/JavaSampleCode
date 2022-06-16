@@ -1,0 +1,27 @@
+public class Main {
+  public static void main(String[] args) {
+    char a;
+    int[] count = new int[27];
+    
+    String str = "a quick brown fox jumps over the lazy dog";
+    char tempCount;
+    
+    for(int i=0 ; i<str.length(); i++){
+    	for(int j=97; j<123; j++){
+        	a = (char)j;
+            if(str.charAt(i) == a){
+            	count[j-96]=count[j-96]+1;
+                if(count[count[0]]<count[j-96]){
+                	count[0] = j-96;
+                }
+            }
+        }
+        /*
+        tempCount = (char) (count[0]+96);
+        System.out.println("After round " + i+ " char " +str.charAt(i) +": "+tempCount);
+        */
+    }    
+    char finalCount = (char) (count[0]+96);
+    System.out.println(finalCount);    
+  }
+}
